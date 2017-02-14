@@ -42,6 +42,17 @@ public class Bbs {
         this.currentDate = currentDate;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setCurrentDate(Date currentDate) {
+        this.currentDate = currentDate;
+    }
 
     public Date getCurrentDate() {
         return currentDate;

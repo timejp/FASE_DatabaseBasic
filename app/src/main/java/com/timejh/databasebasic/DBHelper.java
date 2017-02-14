@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.timejh.databasebasic.domain.Bbs;
@@ -65,6 +66,21 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private Dao<Bbs, Long> bbsdao = null;
+
+    public Dao<Bbs, Long> getBbsdao() throws SQLException {
+        if (bbsdao == null) {
+            bbsdao = getDao(Bbs.class);
+        }
+        return bbsdao;
+    }
+
+    public void releaseBbsDao() {
+        if (bbsdao != null) {
+            bbsdao = null;
         }
     }
 }
